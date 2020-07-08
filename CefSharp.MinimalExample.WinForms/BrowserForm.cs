@@ -20,7 +20,11 @@ namespace CefSharp.MinimalExample.WinForms
             Text = "CefSharp";
             WindowState = FormWindowState.Maximized;
 
-            browser = new ChromiumWebBrowser("www.google.com");
+            browser = new ChromiumWebBrowser("https://web.skype.com/");
+            browser.BrowserSettings = new BrowserSettings() { 
+                WebSecurity = CefState.Disabled,
+                UniversalAccessFromFileUrls = CefState.Enabled
+            };
             toolStripContainer.ContentPanel.Controls.Add(browser);
 
             browser.IsBrowserInitializedChanged += OnIsBrowserInitializedChanged;
